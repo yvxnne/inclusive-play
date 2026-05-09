@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Inclusive Play</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Rajdhani:wght@400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+<link rel="icon" type="image/png" href="images/inclusive play.png">
+<link rel="stylesheet" href="css/homepage.css">
+</head>
+
+
+<body>
+
+<div id="scrollProgress"></div>
+
+<a href="#mainContent" class="skip-link">Skip to main content</a>
+
+
+
+<!-- Navbar -->
+
+<header class="navbar">
+
+<div class="logo">
+    <img src="images/inclusive play.png" alt="Inclusive Play logo">
+    <span>Inclusive Play</span>
+</div>
+
+<nav aria-label="Main Navigation">
+<ul>
+<li><a href="index.html" class="active">Home</a></li>
+<li><a href="html/games.html">Games</a></li>
+<li><a href=".//html/background.html">Background</a></li>
+</ul>
+</nav>
+
+<!-- Accessibility -->
+<div class="accessibility-container">
+
+<button id="accessBtn" aria-expanded="false">
+Accessibility ⚙️
+</button>
+
+<div id="accessMenu" class="access-menu" role="menu" aria-hidden="true">
+
+<label for="themeSelect">Theme</label>
+<select id="themeSelect">
+    <option value="default">Playful (Default)</option>
+    <option value="dark">Playful (Dark)</option>
+    <option value="soft">Soft Professional (Light)</option>
+    <option value="soft-dark">Soft Professional (Dark)</option>
+    <option value="calm">Calm Mint (Light)</option>
+    <option value="calm-dark">Calm Mint (Dark)</option>
+</select>
+
+<label for="fontSelect">Font Style</label>
+<select id="fontSelect">
+<option value="rajdhani">Modern Tech (Default)</option>
+<option value="atkinson">Dyslexia Friendly</option>
+<option value="sharetech">Terminal</option>
+</select>
+
+
+<label>Font Size</label>
+<button onclick="changeFontSize(1)">Increase</button>
+<button onclick="changeFontSize(-1)">Decrease</button>
+<div id="fontStatus" aria-live="polite" style="position:absolute; left:-9999px;"></div>
+
+
+<label for="cbSelect">Colour Blind Mode</label>
+<select id="cbSelect">
+<option value="none">None</option>
+<option value="protanopia">Protanopia</option>
+<option value="deuteranopia">Deuteranopia</option>
+<option value="tritanopia">Tritanopia</option>
+</select>
+
+<label>
+  <input type="checkbox" id="highContrast">
+  High Contrast Mode
+</label>
+
+
+<label>
+  <input type="checkbox" id="keyboardMode">
+  High Visibility Focus Mode
+</label>
+
+<hr>
+
+<button id="resetBtn">Return to Default</button>
+
+</div>
+</div>
+
+</header>
+
+<!-- Main Content -->
+
+<main id="mainContent">
+
+<!-- HERO -->
+<section class="hero">
+
+<div class="hero-text">
+<h1>Experience Accessibility in Gaming</h1>
+
+<p>
+What happens when a game isn’t designed for you? 
+Explore interactive challenges that simulate visual, motor,
+colour perception, and hearing impairments to understand
+why accessibility features matter.
+</p>
+</div>
+</section>
+
+<!-- About -->
+<section class="about">
+<h2>About This Project</h2>
+
+<p>
+Inclusive Play is an educational web project designed to raise
+awareness of accessibility in gaming. Rather than creating
+accessible games for disabled users, this project encourages
+non-disabled players to temporarily experience barriers that
+many gamers face every day.
+</p>
+
+<p>
+Through interactive simulations, users encounter gameplay
+scenarios affected by blurred vision, colour perception
+limitations, motor impairments, and hearing challenges.
+The aim is to build empathy and demonstrate why inclusive
+design is essential in modern game development.
+</p>
+
+<p>
+Accessibility in gaming is not a niche feature — it is a
+fundamental part of inclusive design. As the gaming industry
+continues to grow, so does the responsibility to ensure that
+games can be experienced by as many players as possible.
+</p>
+
+<div class="about-image">
+<img src="images/hero.png" alt="Gaming accessibility illustration">
+</div>
+
+</section>
+
+
+<!-- Background -->
+<section class="background">
+<h2>Why Accessibility in Gaming Matters</h2>
+
+<p>
+Millions of people worldwide live with visual, motor,
+auditory, or cognitive impairments. Many modern games
+rely heavily on fast reactions, colour-based cues,
+precise motor control, and audio feedback.
+</p>
+
+<p>
+Without accessibility features such as colour-blind modes,
+subtitles, remappable controls, scalable text, or alternative
+input methods, some players are excluded from fully enjoying
+gaming experiences.
+</p>
+
+<p>
+By simulating these challenges, this project highlights
+how small design decisions can either create barriers
+or remove them.
+</p>
+
+<div class="why-points">
+    <div class="why-item">
+        <h3>Empathy Through Simulation</h3>
+        <p>Simulating barriers allows non-disabled players to understand exclusion in digital spaces.</p>
+    </div>
+
+    <div class="why-item">
+        <h3>Design Impacts Inclusion</h3>
+        <p>Small interface decisions can determine whether a game is playable or inaccessible.</p>
+    </div>
+
+    <div class="why-item">
+        <h3>Accessibility Benefits Everyone</h3>
+        <p>Features like subtitles and scalable text are widely used beyond their original intent.</p>
+    </div>
+</div>
+
+
+</section>
+
+<!-- Impairment Information -->
+<section class="impairments">
+<h2>Impairments Explored in This Project</h2>
+
+<p>
+The simulations on this website focus on four accessibility areas that can affect gameplay:
+visual impairment, colour vision deficiency, motor impairment, and hearing impairment.
+Each section explains what barrier is being explored and why it matters in game design.
+</p>
+
+<div class="impairment-grid">
+
+<div class="impairment-card">
+    <img src="images/eye.png" alt="" class="impairment-icon">
+<h3>Visual Impairment</h3>
+<p>
+Visual impairments can affect how clearly a player sees text, images, objects, or interface
+elements. In games, poor contrast, small text, visual effects, and unclear layouts can make
+important information difficult to read or understand.
+</p>
+<p>
+The blurred vision simulation shows how reduced clarity can affect gameplay and highlights
+the importance of scalable text, strong contrast, clear visuals, and simple interface design.
+</p>
+</div>
+
+<div class="impairment-card">
+    <img src="images/palette.png" alt="" class="impairment-icon">
+<h3>Colour Vision Deficiency</h3>
+<p>
+Colour vision deficiency affects how some users perceive colours. This can become a barrier
+when games rely only on colour to show important information, such as warnings, teams,
+buttons, or correct answers.
+</p>
+<p>
+The colour-based simulation demonstrates why games should use additional indicators,
+such as labels, icons, patterns, or shapes, instead of relying on colour alone.
+</p>
+</div>
+
+<div class="impairment-card">
+    <img src="images/game-controller.png" alt="" class="impairment-icon">
+<h3>Motor Impairment</h3>
+<p>
+Motor impairments can affect movement, reaction speed, accuracy, or the ability to use a
+mouse or keyboard comfortably. Games that require fast reactions or precise controls can
+be difficult for players with limited motor control.
+</p>
+<p>
+The motor simulation highlights the value of keyboard support, larger buttons, adjustable
+controls, slower timing options, and alternative input methods.
+</p>
+</div>
+
+<div class="impairment-card">
+    <img src="images/sound.png" alt="" class="impairment-icon">
+<h3>Hearing Impairment</h3>
+<p>
+Hearing impairments can affect how players receive audio information. Games often use
+sound effects, voice lines, or music cues to guide players, but this can exclude users who
+cannot hear them clearly.
+</p>
+<p>
+The hearing simulation shows why visual feedback, subtitles, captions, and alternative cues
+are important for making games more accessible.
+</p>
+</div>
+
+</div>
+</section>
+
+<!-- Games -->
+<section class="games">
+<h2>Accessibility Challenge Games</h2>
+
+<p>
+Each challenge below focuses on a different impairment.
+These simulations are not intended to replicate lived experiences,
+but to provide insight into how design decisions influence accessibility.
+</p>
+
+<div class="game-grid">
+
+<a class="game-card" href="../html/games.html">
+<h3>Blurred Vision Challenge</h3>
+<p>
+Complete tasks while your screen is visually distorted,
+demonstrating the importance of clarity, contrast,
+and scalable interface elements.
+</p>
+</a>
+
+<a class="game-card" href="../html/games.html">
+<h3>Colour Clash</h3>
+<p>
+Identify colours under simulated colour-blind overlays.
+This challenge highlights why relying solely on colour
+for communication can exclude players.
+</p>
+</a>
+
+<a class="game-card" href="../html/games.html">
+<h3>Motor Control Challenge</h3>
+<p>
+Navigate gameplay with delayed or restricted controls,
+illustrating how alternative input methods and
+control customisation improve accessibility.
+</p>
+</a>
+
+<a class="game-card" href="../html/games.html">
+<h3>Silent Sound</h3>
+<p>
+Play without audio feedback to experience the importance
+of subtitles, visual cues, and alternative feedback systems
+for deaf and hard-of-hearing players.
+</p>
+</a>
+
+</div>
+
+</section>
+
+<!-- Reflection-->
+<section class="reflection">
+<h2>Designing for Inclusion</h2>
+
+<p>
+Inclusive design benefits everyone. Features originally
+created for accessibility — such as subtitles, scalable text,
+and remappable controls — are now widely used by all players.
+</p>
+
+<p>
+This project demonstrates that accessibility is not an
+optional enhancement, but a core component of ethical
+and user-centred game development.
+</p>
+
+<p>
+By experiencing these simulations, players are encouraged
+to rethink how games are designed and advocate for more
+inclusive digital spaces.
+</p>
+
+</section>
+
+</main>
+
+<!-- Footer -->
+
+<footer>
+<p>© 2026 Inclusive Play | Educational Accessibility Project</p>
+</footer>
+
+<!-- Colour Blind Filters -->
+
+<svg width="0" height="0" style="position:absolute">
+
+<filter id="protanopia">
+<feColorMatrix type="matrix"
+values="0.567,0.433,0,0,0
+        0.558,0.442,0,0,0
+        0,0.242,0.758,0,0
+        0,0,0,1,0"/>
+</filter>
+
+<filter id="deuteranopia">
+<feColorMatrix type="matrix"
+values="0.625,0.375,0,0,0
+        0.7,0.3,0,0,0
+        0,0.3,0.7,0,0
+        0,0,0,1,0"/>
+</filter>
+
+<filter id="tritanopia">
+<feColorMatrix type="matrix"
+values="0.95,0.05,0,0,0
+        0,0.433,0.567,0,0
+        0,0.475,0.525,0,0
+        0,0,0,1,0"/>
+</filter>
+
+</svg>
+
+<script src="js/homepage.js"></script>
+
+
+</body>
+</html>

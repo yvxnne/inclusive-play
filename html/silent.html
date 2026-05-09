@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>Silent Sound</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Rajdhani:wght@400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="images/inclusive play.png">
+<link rel="stylesheet" href="../css/silent.css">
+</head>
+
+<body>
+
+<div id="gameModal" class="modal show">
+  <div class="modal-content">
+
+    <button class="close-btn" onclick="closeGame()">✖</button>
+    <button class="fullscreen-btn" onclick="toggleFullscreen()">⛶</button>
+
+    <div id="silentGame">
+
+      <!-- HUD -->
+      <div class="hud">
+        <span id="levelText">Level 1/4</span>
+        <span id="scoreHUD">Score: 0</span>
+      </div>
+
+      <div class="game-accessibility-container">
+
+  <button id="accessBtn" class="game-access-btn" aria-expanded="false">
+    Accessibility ⚙️
+  </button>
+
+  <div id="accessMenu" class="game-access-menu" aria-hidden="true">
+
+    <label for="themeSelect">Theme</label>
+    <select id="themeSelect">
+      <option value="default">Default</option>
+      <option value="dark">Dark</option>
+      <option value="soft">Soft</option>
+      <option value="soft-dark">Soft Dark</option>
+      <option value="calm">Calm</option>
+      <option value="calm-dark">Calm Dark</option>
+    </select>
+
+    <label for="fontSelect">Font Style</label>
+    <select id="fontSelect">
+      <option value="rajdhani">Modern Tech</option>
+      <option value="atkinson">Dyslexia Friendly</option>
+      <option value="sharetech">Terminal</option>
+    </select>
+
+    <label>Font Size</label>
+    <button onclick="changeFontSize(1)">Increase</button>
+    <button onclick="changeFontSize(-1)">Decrease</button>
+
+    <label>
+      <input type="checkbox" id="highContrast">
+      High Contrast Mode
+    </label>
+
+    <label>
+      <input type="checkbox" id="keyboardMode">
+      High Visibility Focus Mode
+    </label>
+
+    <button id="resetBtn">Return to Default</button>
+
+  </div>
+</div>
+
+      <!-- Intro Screen -->
+      <div id="introScreen" class="center-screen active">
+        <h2>Silent Sound</h2>
+
+        <p class="game-description">
+          This simulation explores how games can become difficult when important information is only given through sound.
+        </p>
+
+        <p class="game-description">
+          Many games use audio cues for danger, direction, timing, dialogue, and feedback. Deaf and hard-of-hearing players may miss this information if visual alternatives are not provided.
+        </p>
+
+        <p class="game-description">
+          In this challenge, you must react to warnings using visual cues, captions, and indicators. As the levels increase, the visual support becomes weaker or delayed.
+        </p>
+
+        <p class="game-hint">
+          💡 Watch the warning area carefully and click the correct direction.
+        </p>
+
+        <button onclick="startGame()">Start Simulation</button>
+      </div>
+
+      <!-- Game Screen -->
+      <div id="gameArea" class="game-layout">
+
+        <div class="left-panel">
+          <p id="taskText">React to the warning cue.</p>
+
+          <div class="sound-stats">
+            <span id="timerText">Time: 20</span>
+            <span id="roundText">Cue: 0/5</span>
+          </div>
+
+          <p id="feedback"></p>
+        </div>
+
+        <div class="right-panel">
+
+          <div id="warningArea">
+
+            <div id="captionBox">
+              Caption will appear here
+            </div>
+
+            <div id="visualCue">⚠</div>
+
+            <div class="direction-grid">
+              <button class="direction-btn" data-direction="left">⬅ Left</button>
+              <button class="direction-btn" data-direction="up">⬆ Up</button>
+              <button class="direction-btn" data-direction="down">⬇ Down</button>
+              <button class="direction-btn" data-direction="right">➡ Right</button>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- End Screen -->
+      <div id="endScreen" class="end-screen">
+
+        <div class="results-card">
+          <h2>Simulation Complete! 🔇</h2>
+
+          <p id="scoreText" class="final-score"></p>
+
+          <div id="achievementBox" class="achievement"></div>
+
+          <div class="educational-text">
+            <h3>What this simulation represents</h3>
+            <p>
+              This simulation represents hearing-related accessibility barriers in games. It shows how difficult gameplay can become when important warnings are only communicated through sound.
+            </p>
+
+            <h3>Real-world impact</h3>
+            <p>
+              Deaf and hard-of-hearing players may miss audio-based warnings, dialogue, enemy direction, timers, or feedback if no visual alternative is included. This can affect reaction time, confidence, and overall gameplay experience.
+            </p>
+
+            <h3>Design takeaway</h3>
+            <p>
+              Good accessibility design uses multiple forms of feedback. Subtitles, captions, visual alerts, icons, vibration cues, and directional indicators can help make games more inclusive.
+            </p>
+          </div>
+
+          <div class="end-buttons">
+            <button onclick="startGame()">Try Again</button>
+            <button onclick="closeGame()">Exit</button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="../js/silent.js"></script>
+
+</body>
+</html>

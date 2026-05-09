@@ -1,0 +1,535 @@
+/* Root Variables */
+
+:root {
+    --bg-color: #f4f7fb;
+    --primary-color: #6c63ff;
+    --secondary-color: #ff6ec7;
+    --text-color: #1a1a1a;
+    --card-bg: #ffffff;
+    --nav-bg: #ffffff;
+    --footer-bg: #e9ecf5;
+
+    --main-font: 'Rajdhani', sans-serif;
+}
+
+/* Global */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--main-font);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+p {
+    line-height: 1.6;
+    max-width: 800px;
+}
+
+/* Scroll Progress Bar */
+#scrollProgress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    z-index: 9999;
+    transition: width 0.2s ease;
+}
+
+/* Navbar */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 2rem;
+    background-color: var(--nav-bg);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.38);
+    overflow: visible;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+/* Animated underline */
+.navbar a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0%;
+    height: 3px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.navbar a:hover::after {
+    width: 100%;
+}
+
+.navbar a:hover {
+    transform: translateY(-2px);
+    color: var(--primary-color);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0rem;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.logo img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+/* Accessibility Dropdown */
+.accessibility-container {
+    position: relative;
+}
+
+#accessBtn {
+    padding: 0.6rem 1rem;
+    border: none;
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#accessBtn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+/* Dropdown Menu */
+.access-menu {
+    position: absolute;
+    right: 0;
+    top: 120%;
+    background-color: var(--card-bg);
+    padding: 1rem;
+    width: 220px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    z-index: 9999;
+
+    /* Animation properties */
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+}
+
+/* Show dropdown */
+.access-menu.show {
+    max-height: 1000px; 
+    opacity: 1;
+}
+
+/* Dropdown items */
+.access-menu select,
+.access-menu button {
+    padding: 0.4rem;
+    font-family: inherit;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.high-contrast {
+  filter: contrast(200%) brightness(120%);
+}
+
+/* Select stays neutral but theme-aware */
+.access-menu select {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border: 1px solid #ccc;
+}
+
+/* Increase / Decrease buttons themed */
+.access-menu button {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+/* Reset button themed */
+#resetBtn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Hover animation for buttons & select */
+.access-menu select:hover,
+.access-menu button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    filter: brightness(1.1);  /* Slight glow effect */
+}
+
+/* Hover effects for buttons and selects */
+.access-menu select:hover,
+.access-menu button:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+
+/* Sections */
+
+section {
+    padding: 3rem 2rem;
+}
+
+.hero {
+    text-align: center;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border-radius: 0 0 40px 40px;
+}
+
+.hero p {
+    margin: auto;
+}
+
+.about,
+.background,
+.reflection {
+    background-color: var(--bg-color);
+}
+
+.games {
+    background-color: var(--footer-bg);
+}
+
+/* Game Cards */
+
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.game-card {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.game-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/*  Footer */
+
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: var(--footer-bg);
+}
+
+footer p {
+    margin: 0;
+    max-width: none;
+}
+
+
+/* ================= THEMES ================= */
+
+/* Playful (Default / Light) */
+body {
+    --bg-color: #f4f7fb;                /* light mode background */
+    --primary-color: #6c63ff;
+    --secondary-color: #ff6ec7;
+    --text-color: #1a1a1a;
+    --card-bg: #ffffff;
+    --nav-bg: #ffffff;
+    --footer-bg: #e9ecf5;
+}
+
+body.dark {
+    --bg-color: #121212;               /* dark mode background */
+    --primary-color: #7b61ff;
+    --secondary-color: #ff6ec7;
+    --text-color: #f1f1f1;
+    --card-bg: #1e1e1e;
+    --nav-bg: #1a1a1a;
+    --footer-bg: #181818;
+}
+
+/* Soft Professional */
+body.soft {
+    --bg-color: #f7f9fc;          /* light mode background */
+    --primary-color: #3a86ff;
+    --secondary-color: #8338ec;
+    --text-color: #222;
+    --card-bg: #ffffff;
+    --nav-bg: #ffffff;
+    --footer-bg: #edf2fb;
+}
+
+body.soft.dark {
+    --bg-color: #1e1e2f;          /* dark mode background */
+    --primary-color: #7b61ff;
+    --secondary-color: #c084fc;
+    --text-color: #e1e1e1;
+    --card-bg: #2b2b3b;
+    --nav-bg: #222233;
+    --footer-bg: #1c1c2a;
+}
+
+/* Calm Mint */
+body.calm {
+    --bg-color: #e6f7f1;          /* light mint */
+    --primary-color: #3fc1a9;
+    --secondary-color: #72e2c0;
+    --text-color: #1f3d3a;
+    --card-bg: #ffffff;
+    --nav-bg: #ffffff;
+    --footer-bg: #d4f0e5;
+}
+
+body.calm.dark {
+    --bg-color: #1f3d3a;          /* dark mint */
+    --primary-color: #3fc1a9;
+    --secondary-color: #72e2c0;
+    --text-color: #e6f7f1;
+    --card-bg: #26403c;
+    --nav-bg: #1b2c28;
+    --footer-bg: #203733;
+}
+
+
+/*  Responsive */
+
+@media (max-width: 768px) {
+
+.navbar {
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.navbar ul {
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.accessibility-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+}
+
+/* Why Accessibility Grid */
+.why-points {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.why-item {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.why-item:hover {
+    transform: translateY(-4px);
+}
+
+/* Fade In */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Keyboard Mode */
+
+body.keyboard-mode *:focus {
+    outline: 3px solid var(--secondary-color);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+body.keyboard-mode button:focus,
+body.keyboard-mode a:focus,
+body.keyboard-mode select:focus {
+    box-shadow: 0 0 0 4px rgba(255, 110, 199, 0.4);
+}
+
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 10px;
+    background: var(--primary-color);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: top 0.3s ease;
+    z-index: 1000;
+}
+
+.skip-link:focus {
+    top: 10px;
+}
+
+.highlight {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+.game-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;       
+}
+
+/* Impairment Information Section */
+
+.impairments {
+    padding: 4rem 8%;
+    text-align: center;
+}
+
+.impairments h2 {
+    margin-bottom: 1rem;
+}
+
+.impairments > p {
+    margin: 0 auto 2rem auto;
+    max-width: 850px;
+}
+
+.impairment-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.impairment-card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    text-align: left;
+}
+
+.impairment-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.8rem;
+}
+
+.impairment-card p {
+    max-width: none;
+    margin-bottom: 0.8rem;
+}
+
+@media (max-width: 768px) {
+    .impairment-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ABOUT SECTION */
+
+.about-image {
+    flex: 50;
+    display: grid;
+    justify-content: right;
+    align-self: flex-start;
+    margin-top: -230px;
+    margin-right: 110px;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 200px;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+
+    .about {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-image {
+        margin-top: 1.5rem;
+        margin-right: 0;
+        justify-content: center;
+        align-self: center;
+        order: 2;
+    }
+
+    .about-image img {
+        max-width: 220px;
+    }
+}
+
+.impairment-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1rem;
+}

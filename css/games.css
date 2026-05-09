@@ -1,0 +1,255 @@
+/* Hero */
+.hero {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+
+    padding: 1rem 2rem 4rem;
+    border-radius: 0 0 40px 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+.hero-inner {
+    max-width: 900px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    text-align: center;
+    transform: translateY(20px);
+}
+
+.hero p {
+    max-width: 750px;
+    opacity: 0.95;
+    line-height: 1.6;
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    font-weight: 500;
+    opacity: 0.95;
+}
+
+.hero-text {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+/* Accessibility */
+.accessibility-principles {
+    max-width: 1000px;
+    margin: 3rem auto;
+    padding: 2.5rem;
+
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+    border: 1px solid rgba(0, 0, 0, 0.05);
+
+    font-family: inherit;
+    color: inherit;
+}
+
+.accessibility-principles h3 {
+    font-size: 1.6rem;
+    margin: 0 0 1rem 0;
+
+    color: var(--primary-color);
+    font-family: inherit;
+}
+
+.accessibility-principles p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+
+    margin: 0 0 1rem 0;
+    opacity: 0.85;
+
+    font-family: inherit;
+}
+
+.accessibility-principles ul {
+    list-style: none;
+
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.accessibility-principles li {
+    padding: 0.9rem 1rem;
+
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.03);
+
+    transition: transform 0.2s ease, background 0.2s ease;
+
+    font-family: inherit;
+}
+
+.accessibility-principles li:hover {
+    transform: translateX(5px);
+    background: rgba(0, 0, 0, 0.06);
+}
+
+.accessibility-principles strong {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+/* Game */
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+.game-card {
+    text-decoration: none;
+    color: inherit;
+}
+
+h3 {
+    color: var(--primary-color);
+}
+
+.before-play {
+    margin: 3rem 0;
+    padding: 2rem;
+    background: var(--card-bg);
+    border-radius: 18px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.before-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+    margin-top: 1.5rem;
+}
+
+.before-grid div {
+    padding: 1rem;
+    border-radius: 14px;
+    background: var(--bg-color);
+}
+
+@media (max-width: 768px) {
+    .before-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.principles-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.principles-list li {
+    margin-bottom: 0.8rem;
+}
+
+.principles-list span {
+    margin-right: 0.5rem;
+}
+
+.game-icon {
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.play-now {
+    margin-top: auto;
+    padding-top: 1.2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    transition: transform 0.3s ease;
+}
+
+.game-card:hover .play-now {
+    transform: translateX(6px);
+}
+
+.game-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Explore Section */
+
+
+.games-explore-image {
+    flex: 1;
+    display: flex;
+    justify-content: right;
+}
+
+.games-explore-image img {
+    width: 30%;
+    max-width: 150px;
+    margin-top: -160px;
+    margin-right: 160px;
+}
+
+/* Mobile */
+
+@media (max-width: 900px) {
+
+.games-explore {
+    flex-direction: column;
+    text-align: center;
+}
+
+.games-explore-image img {
+    max-width: 260px;
+}
+
+}
+
+/* Mobile */
+
+@media (max-width: 900px) {
+
+    .games-explore {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .games-explore-image {
+        justify-content: center;
+        margin-top: 1.5rem;
+        order: 2;
+    }
+
+    .games-explore-image img {
+        width: 60%;
+        max-width: 220px;
+        margin-top: 0;
+        margin-right: 0;
+    }
+}

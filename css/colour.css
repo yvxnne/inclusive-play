@@ -1,0 +1,598 @@
+:root {
+    --primary-color: #6a1b9a;
+    --secondary-color: #9c4dcc;
+    --main-font: 'Rajdhani', sans-serif;
+}
+
+body {
+    margin: 0;
+    background: #111;
+    font-family: var(--main-font);
+}
+
+/* Modal */
+
+.modal {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+    width: 90vw;
+    height: 90vh;
+
+    background: white;
+    border-radius: 16px;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+}
+
+/* HUD */
+
+.hud {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: var(--primary-color);
+    color: white;
+
+    padding: 1rem;
+    font-weight: bold;
+}
+
+/* Buttons */
+
+.close-btn,
+.fullscreen-btn {
+    background: var(--primary-color);
+    color: white;
+
+    border: none;
+
+    width: 34px;
+    height: 34px;
+
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Screens */
+
+#introScreen,
+#gameArea,
+#endScreen {
+    display: none;
+
+    width: 100%;
+    height: 100%;
+
+    flex: 1;
+}
+
+#introScreen.active,
+#gameArea.active,
+#endScreen.active {
+    display: flex;
+}
+
+.screen {
+    flex: 1;
+
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    box-sizing: border-box;
+
+    overflow-y: auto;
+
+    text-align: center;
+
+    padding: 2rem;
+    gap: 1.5rem;
+}
+
+.screen.active {
+    display: flex;
+}
+
+/* Game Layout */
+
+.game-layout {
+    flex: 1;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    gap: 6rem;
+
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 2rem 3rem;
+}
+
+/* Panels */
+
+.left-panel,
+.right-panel {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+/* Game Text */
+
+#taskText {
+    text-align: center;
+    max-width: 400px;
+    margin: 0 auto;
+
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+#feedback {
+    font-size: 1.2rem;
+    min-height: 30px;
+}
+
+/* Target Colour */
+
+#targetColorBox {
+    width: 120px;
+    height: 120px;
+
+    border-radius: 12px;
+
+    margin-top: 1rem;
+
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+}
+
+/* Answers */
+
+#answers {
+    display: grid;
+    grid-template-columns: repeat(2, 140px);
+
+    gap: 1rem;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.answer-box {
+    width: 140px;
+    height: 140px;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    border: 3px solid transparent;
+
+    transition: 0.2s ease;
+
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.answer-box:hover {
+    transform: scale(1.05);
+    border-color: var(--secondary-color);
+}
+
+/* Hint Labels */
+
+.hint-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    font-weight: 700;
+    color: var(--primary-color);
+
+    cursor: pointer;
+}
+
+.hint-label {
+    display: none;
+
+    background: rgba(0,0,0,0.75);
+    color: white;
+
+    padding: 0.3rem 0.5rem;
+
+    border-radius: 6px;
+
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+body.hints-on .hint-label {
+    display: block;
+}
+
+/* Buttons */
+
+.game-btn {
+    padding: 0.9rem 1.3rem;
+
+    border: none;
+    border-radius: 10px;
+
+    background: var(--primary-color);
+    color: white;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.game-btn:hover {
+    background: var(--secondary-color);
+    transform: scale(1.05);
+}
+
+/* End Screen */
+
+#endScreen {
+    justify-content: center;
+    align-items: center;
+
+    padding: 3rem 2rem;
+}
+
+.results-card {
+    width: 100%;
+    max-width: 760px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 2.5rem;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 1.5rem;
+
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+
+    text-align: center;
+}
+
+.results-card h2 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.final-score {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.achievement {
+    background: linear-gradient(
+        135deg,
+        rgba(106,27,154,0.12),
+        rgba(156,77,204,0.18)
+    );
+
+    border: 2px solid rgba(106,27,154,0.2);
+
+    border-radius: 16px;
+
+    padding: 1.2rem;
+
+    color: var(--primary-color);
+
+    font-size: 1.15rem;
+    font-weight: 700;
+
+    line-height: 1.5;
+}
+
+/* Educational Text */
+
+.educational-text {
+    text-align: left;
+
+    background: rgba(0,0,0,0.03);
+
+    border-radius: 14px;
+
+    padding: 1.5rem;
+
+    line-height: 1.7;
+}
+
+.educational-text h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+
+    color: var(--primary-color);
+}
+
+.educational-text p {
+    margin-top: 0;
+    margin-bottom: 1.4rem;
+}
+
+#endInsight {
+    white-space: pre-line;
+
+    font-size: 0.95rem;
+    line-height: 1.5;
+
+    opacity: 0.9;
+}
+
+/* End Buttons */
+
+.end-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+
+    margin-top: 1rem;
+
+    flex-wrap: wrap;
+}
+
+.end-buttons button {
+    min-width: 150px;
+}
+
+/* Accessibility Dropdown */
+
+.game-accessibility-container {
+    position: absolute;
+
+    top: 10px;
+    right: 105px;
+
+    z-index: 30;
+}
+
+.game-access-btn {
+    background: var(--primary-color);
+    color: white;
+
+    border: none;
+
+    padding: 0.5rem 0.8rem;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-family: var(--main-font);
+    font-weight: 700;
+}
+
+.game-access-menu {
+    position: absolute;
+
+    right: 0;
+    top: 120%;
+
+    width: 220px;
+
+    background: white;
+    color: #111;
+
+    padding: 1rem;
+
+    border-radius: 10px;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+
+    display: none;
+    flex-direction: column;
+
+    gap: 0.5rem;
+}
+
+.game-access-menu.show {
+    display: flex;
+}
+
+.game-access-menu select,
+.game-access-menu button {
+    padding: 0.4rem;
+
+    border-radius: 6px;
+    border: 1px solid #ccc;
+
+    font-family: var(--main-font);
+}
+
+.game-access-menu button {
+    background: var(--primary-color);
+    color: white;
+
+    border: none;
+
+    cursor: pointer;
+}
+
+/* Accessibility Modes */
+
+body.high-contrast {
+    --bg-color: #000000;
+    --text-color: #ffffff;
+    --card-bg: #111111;
+    --nav-bg: #000000;
+    --footer-bg: #000000;
+
+    --primary-color: #ffff00;
+    --secondary-color: #00ffff;
+}
+
+body.high-contrast .results-card,
+body.high-contrast .modal-content {
+    border: 2px solid #ffffff;
+}
+
+body.high-contrast button {
+    font-weight: bold;
+}
+
+body.keyboard-mode *:focus {
+    outline: 3px solid var(--secondary-color);
+    outline-offset: 3px;
+}
+
+/* Theme Support */
+
+body.dark .modal-content {
+    background: #2b2b2b;
+    color: #f1f1f1;
+}
+
+body.soft .modal-content {
+    background: #f7f9fc;
+    color: #222;
+}
+
+body.soft.dark .modal-content {
+    background: #252538;
+    color: #e1e1e1;
+}
+
+body.calm .modal-content {
+    background: #e6f7f1;
+    color: #1f3d3a;
+}
+
+body.calm.dark .modal-content {
+    background: #1f3d3a;
+    color: #e6f7f1;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    .modal-content {
+        width: 95vw;
+        height: 95vh;
+
+        overflow-y: auto;
+    }
+
+    .screen {
+        width: 100%;
+
+        padding: 1rem;
+
+        align-items: center;
+        justify-content: flex-start;
+
+        text-align: center;
+
+        overflow-x: hidden;
+    }
+
+    .game-layout {
+        width: 100%;
+
+        flex-direction: column;
+
+        align-items: center;
+        justify-content: center;
+
+        gap: 1.5rem;
+
+        padding: 1rem;
+    }
+
+    .left-panel,
+    .right-panel {
+        width: 100%;
+
+        align-items: center;
+        justify-content: center;
+
+        text-align: center;
+    }
+
+    #taskText {
+        width: 100%;
+        max-width: 90vw;
+
+        margin: 0 auto;
+
+        text-align: center;
+    }
+
+    #targetColorBox {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #answers {
+        grid-template-columns: repeat(2, 120px);
+
+        justify-content: center;
+
+        margin: 0 auto;
+    }
+
+    .answer-box {
+        width: 120px;
+        height: 120px;
+    }
+
+    .hint-toggle {
+        justify-content: center;
+        margin: 0 auto;
+    }
+
+    .results-card {
+        padding: 1.5rem;
+    }
+
+    .results-card h2 {
+        font-size: 1.6rem;
+    }
+
+    .final-score {
+        font-size: 1.2rem;
+    }
+
+    .achievement {
+        font-size: 1rem;
+    }
+
+    .educational-text {
+        text-align: left;
+    }
+}

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Rajdhani:wght@400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+<head>
+<meta charset="UTF-8">
+<title>Blurred Vision Game</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="icon" type="image/png" href="../images/inclusive play.png">
+<link rel="stylesheet" href="../css/homepage.css">
+<link rel="stylesheet" href="../css/games.css">
+
+
+</head>
+
+<body>
+
+ <!-- Navbar -->  
+<header class="navbar">
+
+<div class="logo">
+    <img src="../images/inclusive play.png" alt="Inclusive Play logo">
+    <span>Inclusive Play</span>
+</div>
+
+<nav aria-label="Main Navigation">
+<ul>
+<li><a href="../index.html">Home</a></li>
+<li><a href="../html/games.html" class="active">Games</a></li>
+<li><a href="../html/background.html">Background</a></li>
+</ul>
+</nav>
+
+<div id="scrollProgress"></div>
+
+<!-- Accessibility -->
+<div class="accessibility-container">
+
+<button id="accessBtn" aria-expanded="false">
+Accessibility ⚙️
+</button>
+
+<div id="accessMenu" class="access-menu" role="menu" aria-hidden="true">
+
+<label for="themeSelect">Theme</label>
+<select id="themeSelect">
+    <option value="default">Playful (Default)</option>
+    <option value="dark">Playful (Dark)</option>
+    <option value="soft">Soft Professional (Light)</option>
+    <option value="soft-dark">Soft Professional (Dark)</option>
+    <option value="calm">Calm Mint (Light)</option>
+    <option value="calm-dark">Calm Mint (Dark)</option>
+</select>
+
+<label for="fontSelect">Font Style</label>
+<select id="fontSelect">
+<option value="rajdhani">Modern Tech (Default)</option>
+<option value="atkinson">Dyslexia Friendly</option>
+<option value="sharetech">Terminal</option>
+</select>
+
+<label>Font Size</label>
+<button onclick="changeFontSize(1)">Increase</button>
+<button onclick="changeFontSize(-1)">Decrease</button>
+
+<label>
+  <input type="checkbox" id="highContrast">
+  High Contrast Mode
+</label>
+
+<label>
+  <input type="checkbox" id="keyboardMode">
+  High Visibility Focus Mode
+</label>
+
+<hr>
+
+<button id="resetBtn">Return to Default</button>
+
+</div>
+</div>
+
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-inner">
+
+    <h1>Accessibility Challenge Games</h1>
+
+  </div>
+</section>
+
+
+<main>
+
+<section class="games">
+
+  <div class="games-explore">
+
+    <h2>Explore the Simulations</h2>
+
+    <p>
+      Experience interactive simulations that reveal how accessibility barriers affect real users in digital environments.
+    </p>
+
+    <p>
+      Each challenge represents a different type of impairment—visual, motor, auditory, or perceptual—to help you understand how design choices impact usability.
+    </p>
+
+  </div>
+
+
+  <!-- Intro -->
+  <div class="education-intro">
+
+  <h2>Why this matters</h2>
+
+    <p>
+      Digital environments are not experienced the same way by everyone.
+      Over <strong>1 billion people globally</strong> live with some form of disability that affects how they interact with visual, auditory, or motor-based systems.
+    </p>
+
+    <p>
+      These simulations are designed to help you understand how design choices in games and applications can either support or exclude users.
+      Each challenge represents a simplified model of real-world impairments—not to replicate lived experience, but to build awareness and better design thinking.
+    </p>
+ <div class="games-explore-image">
+    <img src="../images/game-controller.png" alt="Accessibility gaming illustration">
+  </div>
+  </div>
+
+  <div class="before-play">
+  <h2>Before You Play</h2>
+
+  <p>
+    These games are short awareness activities. They are not medical simulations and do not fully represent lived experiences of disability.
+    Instead, they show how common design choices can make games harder to use.
+  </p>
+
+  <div class="before-grid">
+    <div>
+      <h3>Look for barriers</h3>
+      <p>Notice when information becomes harder to see, hear, control, or understand.</p>
+    </div>
+
+    <div>
+      <h3>Think like a designer</h3>
+      <p>Consider what accessibility feature could reduce the barrier.</p>
+    </div>
+
+    <div>
+      <h3>Reflect after playing</h3>
+      <p>Each challenge links back to real accessibility features used in inclusive design.</p>
+    </div>
+  </div>
+</div>
+
+<h2>Games</h2>
+  <div class="game-grid">
+
+  <a class="game-card blur-card" href="blurred.html">
+    <h3>🎮 Blurred Vision</h3>
+    <p>
+      Simulates <strong>myopia (short-sightedness)</strong> and progressive visual blur.
+      As clarity decreases, recognition speed and accuracy are reduced.
+    </p>
+    <div class="play-now">
+  Click to Play →
+</div>
+  </a>
+
+  <a class="game-card colour-card" href="colour.html">
+    <h3>🎮 Colour Clash</h3>
+    <p>
+      Demonstrates <strong>colour vision deficiency</strong>, including red-green colour blindness.
+      Shows how poor contrast affects usability.
+    </p>
+    <div class="play-now">
+  Click to Play →
+</div>
+  </a>
+
+  <a class="game-card motor-card" href="motor.html">
+    <h3>🎮 Motor Control</h3>
+    <p>
+      Simulates reduced fine motor precision caused by tremors or Parkinson’s disease.
+    </p>
+    <div class="play-now">
+  Click to Play →
+</div>
+  </a>
+
+  <a class="game-card silent-card" href="silent.html">
+    <h3>🎮 Silent Sound</h3>
+    <p>
+      Represents hearing impairment and reliance on non-audio feedback.
+    </p>
+    <div class="play-now">
+  Click to Play →
+</div>
+  </a>
+
+</div>
+</section>
+
+<div class="accessibility-principles">
+
+  <h3>Core Accessibility Principles</h3>
+
+  <p>
+    These simulations are based on established accessibility design principles used in real-world digital products:
+  </p>
+
+ <ul class="principles-list">
+  <li><span>👁️</span><strong>Perceivable:</strong> Information must be available through multiple senses.</li>
+  <li><span>⌨️</span><strong>Operable:</strong> Interfaces must support different physical abilities.</li>
+  <li><span>💡</span><strong>Understandable:</strong> Interactions should be clear and predictable.</li>
+  <li><span>🧩</span><strong>Robust:</strong> Content should work across assistive technologies.</li>
+</ul>
+
+</div>
+
+
+</main>
+
+<footer>
+<p>© 2026 Inclusive Play | Educational Accessibility Project</p>
+</footer>
+
+<script src="../js/homepage.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Motor Mayhem</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Rajdhani:wght@400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="images/inclusive play.png">
+
+<link rel="stylesheet" href="../css/motor.css">
+</head>
+
+<body>
+
+<div id="gameModal" class="modal show">
+  <div class="modal-content">
+
+    <button class="close-btn" onclick="closeGame()">✖</button>
+    <button class="fullscreen-btn" onclick="toggleFullscreen()">⛶</button>
+
+    <div id="motorGame">
+
+      <!-- HUD -->
+      <div class="hud">
+        <span id="levelText">Level 1/3</span>
+        <span id="scoreHUD">Score: 0</span>
+      </div>
+
+      <div class="game-accessibility-container">
+
+  <button id="accessBtn" class="game-access-btn" aria-expanded="false">
+    Accessibility ⚙️
+  </button>
+
+  <div id="accessMenu" class="game-access-menu" aria-hidden="true">
+
+    <label for="themeSelect">Theme</label>
+    <select id="themeSelect">
+      <option value="default">Default</option>
+      <option value="dark">Dark</option>
+      <option value="soft">Soft</option>
+      <option value="soft-dark">Soft Dark</option>
+      <option value="calm">Calm</option>
+      <option value="calm-dark">Calm Dark</option>
+    </select>
+
+    <label for="fontSelect">Font Style</label>
+    <select id="fontSelect">
+      <option value="rajdhani">Modern Tech</option>
+      <option value="atkinson">Dyslexia Friendly</option>
+      <option value="sharetech">Terminal</option>
+    </select>
+
+    <label>Font Size</label>
+    <button onclick="changeFontSize(1)">Increase</button>
+    <button onclick="changeFontSize(-1)">Decrease</button>
+
+    <label>
+      <input type="checkbox" id="highContrast">
+      High Contrast Mode
+    </label>
+
+    <label>
+      <input type="checkbox" id="keyboardMode">
+      High Visibility Focus Mode
+    </label>
+
+    <button id="resetBtn">Return to Default</button>
+
+  </div>
+</div>
+
+      <!-- Intro Screen -->
+      <div id="introScreen" class="center-screen active">
+        <h2>Motor Mayhem</h2>
+
+        <p class="game-description">
+          This simulation explores motor accessibility by adding delay to your cursor movement.
+          The game becomes harder because your aim does not respond instantly.
+        </p>
+
+        <p class="game-description">
+          Some players experience motor barriers caused by tremors, reduced coordination,
+          muscle weakness, or difficulty using precise mouse controls.
+        </p>
+
+        <p class="game-description">
+          This challenge shows why games should include features such as larger targets,
+          adjustable speed, remappable controls, and aim assistance.
+        </p>
+
+        <p class="game-hint">
+          💡 Try to hit as many targets as possible before the timer runs out.
+        </p>
+
+        <button onclick="startGame()">Start Simulation</button>
+      </div>
+
+      <!-- Game Screen -->
+      <div id="gameArea" class="game-layout">
+
+        <div class="left-panel">
+          <p id="taskText">Hit the targets before time runs out.</p>
+
+          <div class="motor-stats">
+            <span id="timerText">Time: 20</span>
+            <span id="hitsText">Hits: 0</span>
+          </div>
+
+          <p id="feedback"></p>
+        </div>
+
+        <div class="right-panel">
+          <div id="aimArea">
+            <div id="crosshair"></div>
+            <div id="target"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- End Screen -->
+      <div id="endScreen" class="end-screen">
+
+        <div class="results-card">
+          <h2>Simulation Complete! 🎮</h2>
+
+          <p id="scoreText" class="final-score"></p>
+
+          <div id="achievementBox" class="achievement"></div>
+
+          <div class="educational-text">
+            <h3>What this simulation represents</h3>
+            <p>
+              This simulation represents reduced motor precision and delayed input response.
+              As the delay increased, aiming and clicking accurately became more difficult.
+            </p>
+
+            <h3>Real-world impact</h3>
+            <p>
+              Motor impairments can affect reaction speed, accuracy, hand movement, and the ability
+              to use a mouse or controller comfortably. Games that rely on fast and precise input
+              can become frustrating or inaccessible without support options.
+            </p>
+
+            <h3>Design takeaway</h3>
+            <p>
+              Features such as larger targets, aim assist, slower gameplay options, remappable controls,
+              and alternative input methods can reduce barriers and make games more accessible.
+            </p>
+          </div>
+
+          <div class="end-buttons">
+            <button onclick="startGame()">Try Again</button>
+            <button onclick="closeGame()">Exit</button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="../js/motor.js"></script>
+
+</body>
+</html>

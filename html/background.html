@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Inclusive Play</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Rajdhani:wght@400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+<link rel="icon" type="image/png" href="../images/inclusive play.png">
+<link rel="stylesheet" href="../css/homepage.css">
+</head>
+
+
+<body>
+
+<div id="scrollProgress"></div>
+
+<!-- Navbar -->
+
+<header class="navbar">
+
+<div class="logo">
+    <img src="../images/inclusive play.png" alt="Inclusive Play logo">
+    <span>Inclusive Play</span>
+</div>
+
+<nav aria-label="Main Navigation">
+<ul>
+<li><a href="../index.html">Home</a></li>
+<li><a href="../html/games.html">Games</a></li>
+<li><a href="../html/background.html" class="active">Background</a></li>
+</ul>
+</nav>
+
+<!-- Accessibility -->
+<div class="accessibility-container">
+
+<button id="accessBtn" aria-expanded="false">
+Accessibility ⚙️
+</button>
+
+<div id="accessMenu" class="access-menu" role="menu" aria-hidden="true">
+
+<label for="themeSelect">Theme</label>
+<select id="themeSelect">
+    <option value="default">Playful (Default)</option>
+    <option value="dark">Playful (Dark)</option>
+    <option value="soft">Soft Professional (Light)</option>
+    <option value="soft-dark">Soft Professional (Dark)</option>
+    <option value="calm">Calm Mint (Light)</option>
+    <option value="calm-dark">Calm Mint (Dark)</option>
+</select>
+
+<label for="fontSelect">Font Style</label>
+<select id="fontSelect">
+<option value="rajdhani">Modern Tech (Default)</option>
+<option value="atkinson">Dyslexia Friendly</option>
+<option value="sharetech">Terminal</option>
+</select>
+
+
+<label>Font Size</label>
+<button onclick="changeFontSize(1)">Increase</button>
+<button onclick="changeFontSize(-1)">Decrease</button>
+<div id="fontStatus" aria-live="polite" style="position:absolute; left:-9999px;"></div>
+
+
+<label for="cbSelect">Colour Blind Mode</label>
+<select id="cbSelect">
+<option value="none">None</option>
+<option value="protanopia">Protanopia</option>
+<option value="deuteranopia">Deuteranopia</option>
+<option value="tritanopia">Tritanopia</option>
+</select>
+
+<label>
+  <input type="checkbox" id="highContrast">
+  High Contrast Mode
+</label>
+
+
+<label>
+  <input type="checkbox" id="keyboardMode">
+  High Visibility Focus Mode
+</label>
+
+<hr>
+
+<button id="resetBtn">Return to Default</button>
+
+</div>
+</div>
+
+</header>
+
+<main id="mainContent">
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Background and Research</h1>
+  <p>
+    This page explains the research, motivation, and design reasoning behind Inclusive Play,
+    focusing on why accessibility matters in gaming.
+  </p>
+</section>
+
+
+<!-- PROJECT OVERVIEW -->
+<section class="project-overview-section fade-in">
+
+  <div class="project-overview-text">
+    <h2>Project Overview</h2>
+
+    <p>
+      Inclusive Play explores accessibility in gaming through interactive simulations.
+      The project is designed to raise awareness by allowing users to experience simplified
+      examples of barriers that can affect gameplay.
+    </p>
+
+    <p>
+      Instead of only explaining accessibility, the website uses interaction to help users
+      understand how design choices can affect visibility, control, hearing, and colour perception.
+    </p>
+  </div>
+
+</section>
+
+
+<!-- PERSONAL MOTIVATION -->
+<section class="reflection fade-in highlight">
+  <h2>Personal Motivation</h2>
+
+  <p>
+    As someone who regularly plays games, I had not personally needed to rely on accessibility
+    features before starting this project. Because of this, I initially saw them as useful
+    additions rather than essential parts of design.
+  </p>
+
+  <p>
+    Through research, I began to understand how many players depend on features such as subtitles,
+    colour-blind modes, scalable text, and alternative controls. This changed how I viewed
+    accessibility and showed me how easily games can exclude users when these needs are ignored.
+  </p>
+
+  <p>
+    This was especially clear in smaller web-based games, where accessibility features are often
+    limited or missing. Inclusive Play was created to explore these issues technically while also
+    raising awareness of their importance.
+  </p>
+</section>
+
+<!-- ACCESSIBILITY BACKGROUND -->
+<section class="background fade-in">
+  <h2>Accessibility in Gaming</h2>
+
+  <p>
+    Accessibility in gaming means designing games so they can be used by as many people as possible,
+    including players with visual, motor, hearing, or cognitive impairments.
+  </p>
+
+  <div class="info-grid">
+
+    <div class="info-card">
+      <h3>👁️ Visual Barriers</h3>
+      <p>
+        Small text, poor contrast, blur effects, and cluttered layouts can make important game
+        information difficult to see.
+      </p>
+    </div>
+
+    <div class="info-card">
+      <h3>🎨 Colour Barriers</h3>
+      <p>
+        Games that rely only on colour can exclude users with colour vision deficiencies.
+        Labels, icons, and patterns can make information clearer.
+      </p>
+    </div>
+
+    <div class="info-card">
+      <h3>⌨️ Motor Barriers</h3>
+      <p>
+        Fast reactions, precise mouse movement, and fixed controls can create difficulty for
+        users with reduced motor control.
+      </p>
+    </div>
+
+    <div class="info-card">
+      <h3>🔇 Hearing Barriers</h3>
+      <p>
+        Audio-only cues can exclude deaf or hard-of-hearing players. Subtitles, captions, and
+        visual feedback can reduce this barrier.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- DESIGN RATIONALE -->
+<section class="reflection fade-in">
+  <h2>Design Rationale</h2>
+
+  <p>
+    The design of this project is influenced by inclusive design principles. These focus on
+    reducing barriers instead of expecting users to adapt to inaccessible systems.
+  </p>
+
+  <p>
+    Each simulation highlights a specific accessibility issue found in games. The aim is not
+    to fully replicate real-world disability experiences, but to encourage reflection and show
+    why inclusive features matter.
+  </p>
+
+  <div class="rationale-points">
+
+    <div>
+      <h3>Practical Accessibility</h3>
+      <p>Features such as scalable text, themes, and colour-blind modes support usability.</p>
+    </div>
+
+    <div>
+      <h3>Awareness Through Play</h3>
+      <p>Simulations help users understand accessibility barriers through interaction.</p>
+    </div>
+
+    <div>
+      <h3>Inclusive Design</h3>
+      <p>Good design should consider different users from the beginning of development.</p>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+
+<footer>
+<p>© 2026 Inclusive Play | Educational Accessibility Project</p>
+</footer>
+
+<!-- Colour Blind Filters -->
+
+<svg width="0" height="0" style="position:absolute">
+
+<filter id="protanopia">
+<feColorMatrix type="matrix"
+values="0.567,0.433,0,0,0
+        0.558,0.442,0,0,0
+        0,0.242,0.758,0,0
+        0,0,0,1,0"/>
+</filter>
+
+<filter id="deuteranopia">
+<feColorMatrix type="matrix"
+values="0.625,0.375,0,0,0
+        0.7,0.3,0,0,0
+        0,0.3,0.7,0,0
+        0,0,0,1,0"/>
+</filter>
+
+<filter id="tritanopia">
+<feColorMatrix type="matrix"
+values="0.95,0.05,0,0,0
+        0,0.433,0.567,0,0
+        0,0.475,0.525,0,0
+        0,0,0,1,0"/>
+</filter>
+
+</svg>
+
+<script src="../js/homepage.js"></script>
+
+
+</body>
+</html>

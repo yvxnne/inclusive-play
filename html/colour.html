@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>Colour Vision Game</title>
+
+<link rel="icon" type="image/png" href="images/inclusive play.png">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/colour.css">
+</head>
+
+<body>
+
+<div id="gameModal" class="modal show">
+  <div class="modal-content">
+
+    <!-- HUD -->
+    <div class="hud">
+      <span id="levelText">Level 1</span>
+
+      <div class="hud-right">
+        <span id="scoreHUD">Score: 0</span>
+        <button class="fullscreen-btn" onclick="toggleFullscreen()">⛶</button>
+        <button class="close-btn" onclick="closeGame()">✖</button>
+      </div>
+    </div>
+
+  
+
+    <!-- Intro -->
+    <div id="introScreen" class="screen active">
+  <h2>Colour Clash</h2>
+
+  <p class="game-description">
+    This simulation demonstrates how colour blindness affects real-world perception.
+  </p>
+
+  <p class="game-description">
+    You will be shown a set of colours under different vision filters.
+    Your task is to identify the correct original colour from distorted options.
+  </p>
+
+  <p class="game-description">
+    Each level represents a different type of colour vision deficiency:
+    Protanopia, Deuteranopia, and Tritanopia.
+  </p>
+
+  <p class="game-hint">
+          💡 Try to guess the right colour.
+        </p>
+
+  <button class="game-btn" onclick="startGame()">Start Game</button>
+</div>
+
+
+    <!-- Game -->
+    <div id="gameArea" class="screen">
+
+  <div class="game-layout">
+
+    <!-- LEFT -->
+    <div class="left-panel">
+      <p id="taskText"></p>
+
+      <label class="hint-toggle">
+  <input type="checkbox" id="hintToggle">
+  Show hints
+</label>
+
+      <div id="targetColorBox"></div>
+
+      <p id="feedback"></p>
+
+      <button id="nextBtn" class="game-btn" style="display:none;">Next</button>
+    </div>
+
+    <!-- Right -->
+    <div class="right-panel">
+      <div id="answers"></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- End -->
+<div id="endScreen" class="screen">
+
+  <div class="results-card">
+
+    <h2>Simulation Complete! 🎨</h2>
+
+    <p id="scoreText" class="final-score"></p>
+
+    <div id="achievementBox" class="achievement"></div>
+
+    <div class="educational-text">
+
+      <h3>What this simulation represents</h3>
+
+      <p>
+        This challenge simulated different forms of colour vision deficiency,
+        demonstrating how colour perception changes under altered visual conditions.
+      </p>
+
+      <h3>Real-world impact</h3>
+
+      <p id="endInsight"></p>
+
+      <h3>Design takeaway</h3>
+
+      <p>
+        Good accessibility design avoids relying only on colour for communication.
+        Labels, patterns, icons, contrast, and multiple feedback methods help make
+        interfaces more inclusive for all users.
+      </p>
+
+    </div>
+
+    <div class="end-buttons">
+      <button class="game-btn" onclick="startGame()">Try Again</button>
+      <button class="game-btn" onclick="closeGame()">Exit</button>
+    </div>
+
+  </div>
+
+</div>
+</div>
+
+
+<script src="../js/colour.js"></script>
+</body>
+</html>
